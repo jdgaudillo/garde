@@ -111,7 +111,11 @@ def getNewFilename(source, id, annotation, file_format):
 
 def mapping(source, filename, new_filename):
 
-	file = "../standardized-data/map.csv"
+	""" LOCAL
+	file = "../standardized-data/map.csv" """
+
+	# SERVER
+	file = "/mnt/sdb/A-EYE/standardized-data/map.csv"
 
 	if not os.path.exists(file):
 		with open(file, "w") as f:
@@ -125,7 +129,11 @@ def mapping(source, filename, new_filename):
 
 
 def saveImage(annotation, new_filename, original_path):
-	destination_dir = "../standardized-data"
+	""" LOCAL
+	destination_dir = "../standardized-data/" """
+
+	# SERVER
+	destination_dir = "/mnt/sdb/A-EYE/standardized-data/"
 
 	if not os.path.isdir(destination_dir):
 		os.mkdir(destination_dir)

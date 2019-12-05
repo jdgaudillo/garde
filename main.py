@@ -5,6 +5,6 @@ from data_cleaning.main import main
 
 
 if __name__ == "__main__":
-	source = "eOPHTHA"
+	source = "HRF"
 
 	main(source)
