@@ -9,13 +9,13 @@ def get_STARE_annotation(filename):
 	annotation_file = "../data/annotation/STARE.csv" """
 
 	# SERVER
-	annotation_file = "/mnt/sdb/annotation/STARE.csv"
+	annotation_file = "/mnt/sdb/A-EYE/annotation/STARE.csv"
 
 	annotation = pd.read_csv(annotation_file, sep=",", header=None)
 	annotation.columns = ["imageid", "annotation"]
 
 	annotations = annotation.loc[annotation.imageid==filename.split(".")[0], "annotation"].values
-	annotations = [annot.split(" ") for annot in annotations] 
+	annotations = [annot.split(" ") for annot in annotations]
 
 	return annotations
 
@@ -37,7 +37,7 @@ def get_MESSIDOR_annotation(filename):
 	annotation_file = "../data/annotation/MESSIDOR.csv" """
 
 	# SERVER
-	annotation_file = "../data/annotation/MESSIDOR.csv"
+	annotation_file = "/mnt/sdb/A-EYE/annotation/MESSIDOR.csv"
 
 	annotation = pd.read_csv(annotation_file, sep=",")
 	annotation.loc[:, "retinopathy_grade"] = "retinopathygrade" + "_" + annotation.retinopathy_grade.map(str)
@@ -58,7 +58,7 @@ def get_KAGGLE_annotation(filename):
 	annotation_file = "../data/annotation/KAGGLEcsv" """
 
 	# SERVER
-	annotation_file = "/mnt/sdb/annotation/KAGGLE.csv"
+	annotation_file = "/mnt/sdb/A-EYE/annotation/KAGGLE.csv"
 
 	annot = pd.read_csv(annotation_file, sep = ",")
 
@@ -80,7 +80,7 @@ def get_DIARETDB0_annotation(source, filename):
 	annotation_dir= "../data/annotation/" """
 
 	# SERVER
-	annotation_dir = "/mnt/sdb/annotation/"
+	annotation_dir = "/mnt/sdb/A-EYE/annotation/"
 
 	filename = filename.split(".")[0] + ".dot"
 	annotation_dir = os.path.join(annotation_dir, source)
@@ -99,7 +99,7 @@ def get_eOPHTHA_annotation(source):
 	data_dir = "../data/eOPHTHA """
 
 	# SERVER
-	data_dir = "/mnt/sdb/eOPHTHA"
+	data_dir = "/mnt/sdb/A-EYE/eOPHTHA"
 
 	for i in os.listdir(data_dir):
 		if i[:2] == 'MA':

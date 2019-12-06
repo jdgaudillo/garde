@@ -11,8 +11,8 @@ from data_cleaning.clean import getImageInformation, getNewFilename, getAnnotati
 def main(source):
 	start_time = time.time()
 
-	""" LOCAL
-	data_dir = "../data/" """
+	#LOCAL
+	#data_dir = "../data/"
 
 	# SERVER         					
 	data_dir = "/mnt/sdb/A-EYE" 
@@ -27,11 +27,12 @@ def main(source):
 			filename, file_format = getImageInformation(os.path.join(source_dir, image_file))
 			annotation = getAnnotation(source, image_file)
 
-			new_filename = getNewFilename(source, str(i), annotation.lower(), file_format)
+			new_filename = getNewFilename(source, str(i), annotation, file_format)
 
 			saveImage(annotation, new_filename, os.path.join(source_dir, image_file))
 			mapping(source, filename, new_filename)
 
 			print(">>>>>>>>>> Successfully cleaned ", i, image_file, new_filename, "\n")
+			break
 	
 	print(">>>>> TOTAL RUNTIME: ", time.time() - start_time)

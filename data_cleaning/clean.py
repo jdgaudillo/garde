@@ -21,7 +21,7 @@ def clean_MESSIDOR_dataset():
 
 			for i, file in enumerate(image_files):
 				print(">>>>>>>> ", file)
-				os.rename(os.path.join(base_dir, file), os.path.join(base_dir, renamed_files[i]))
+				os.rename(os.path.join(base_dir, file), os.path.join(data_dir, renamed_files[i]))
 		print(">>>>>>> Successfully renamed files")
 
 
@@ -129,8 +129,8 @@ def mapping(source, filename, new_filename):
 
 
 def saveImage(annotation, new_filename, original_path):
-	""" LOCAL
-	destination_dir = "../standardized-data/" """
+	#LOCAL
+	#destination_dir = "../standardized-data/"
 
 	# SERVER
 	destination_dir = "/mnt/sdb/A-EYE/standardized-data/"
@@ -141,7 +141,7 @@ def saveImage(annotation, new_filename, original_path):
 	if annotation is None:
 		annotation_dir = os.path.join(destination_dir, "no-label")
 
-	elif annotation is str:
+	elif type(annotation) is str:
 		annotation_dir = os.path.join(destination_dir, annotation)
 
 	else:
