@@ -103,10 +103,10 @@ def get_eOPHTHA_annotation(source):
 
 	for i in os.listdir(data_dir):
 		if i[:2] == 'MA':
-			annotation = 'Microaneurysms'
+			annotation = 'microaneurysms'
 		elif i[:2] == 'EX':
-			annotation = 'Exudates'
+			annotation = 'exudates'
 		else:
-			annotation = 'Healthy'
+			annotation = 'healthy'
 
 	return annotation
